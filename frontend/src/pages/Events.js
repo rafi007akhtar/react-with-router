@@ -11,14 +11,11 @@ export default function EventsPage() {
       <Link to={`/events/${event.id}`}>{event.title}</Link>
     </li>
   ));
-  const style = {
-    'list-style': 'inside'
-  }
   return (
     <>
       <h1>This is the Events page.</h1>
       The events are:
-      <ul style={style}>{allEvents}</ul>
+      <ul>{allEvents}</ul>
     </>
   );
 }

@@ -8,6 +8,7 @@ import NewEventPage from "./pages/NewEvent";
 import EditEventPage from "./pages/EditEvent";
 import RootLayout from "./pages/Root";
 import EventRootLayout from "./pages/EventRoot";
+import ErrorPage from "./pages/Error";
 
 // 1. Add five new (dummy) page components (content can be simple <h1> elements) - DONE
 //    - HomePage
@@ -33,6 +34,7 @@ const routes = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
       {

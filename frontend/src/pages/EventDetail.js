@@ -1,4 +1,4 @@
-import { json, useRouteLoaderData } from "react-router-dom";
+import { json, redirect, useRouteLoaderData } from "react-router-dom";
 import EventItem from "../components/EventItem";
 
 const EVENTS_BACKEND_URL = 'http://localhost:8080/events';
@@ -19,4 +19,15 @@ export async function eventDetailsLoader({ request, params }) {
   } else {
     return response;
   }
+}
+
+export async function action({ params }) {
+  const response = await fetch(`${EVENTS_BACKEND_URL}/${params.id}`, {
+    method: 'DELETE'
+  });
+
+  if (! response.ok) {
+    throw json('Could not delete event.');
+  }
+  return redirect('/events');
 }

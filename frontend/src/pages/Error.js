@@ -9,7 +9,8 @@ export default function ErrorPage() {
 
   switch (error.status) {
     case 500:
-      message = JSON.parse(error.data).message;
+      //   message = JSON.parse(error.data).message;
+      message = error.data.message;
       break;
     case 404:
       title = "Not found";

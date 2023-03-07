@@ -27,7 +27,7 @@ export async function action({ params }) {
   });
 
   if (! response.ok) {
-    throw json('Could not delete event.');
+    throw json({ message: "Could not delete event." }, { status: 500 });
   }
   return redirect('/events');
 }
